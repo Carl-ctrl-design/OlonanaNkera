@@ -1239,85 +1239,71 @@
 
       <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="contact-form-container">
-            <h2 class="section-title">Get in Touch with Us</h2>
-            <form name="contact-form" id="contact-form" class="contact-form-style-01">
-                <div class="messages"></div>
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <label class="sr-only" for="name">Name</label>
-                            <input type="text" name="name" class="md-input" id="name" placeholder="Name *" required data-error="Your Name is Required">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <label class="sr-only" for="email">Email</label>
-                            <input type="email" name="email" class="md-input" id="email" placeholder="Email *" required data-error="Please Enter Valid Email">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group">
-                            <label class="sr-only" for="subject">Subject</label>
-                            <input type="text" name="subject" class="md-input" id="subject" placeholder="Subject">
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group">
-                            <label class="sr-only" for="message">Message</label>
-                            <textarea name="message" class="md-textarea" id="message" rows="7" placeholder="Message" required data-error="Please, Leave us a message"></textarea>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-sm-12">
-                        <div class="text-center mt-20">
-                            <button type="submit" name="submit" class="btn btn-outline btn-md btn-square btn-animate remove-margin">
-                                <span>Send Message <i class="ion-android-arrow-forward"></i></span>
-                            </button>
-                        </div>
-                    </div>
+          <h2 class="section-title">Get in Touch with Us</h2>
+          <form action="https://formspree.io/f/xblryrrq" method="POST" class="contact-form-style-01">
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label for="name">Name *</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Name *"
+                    required
+                    class="md-input"
+                  />
                 </div>
-            </form>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label for="email">Email *</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email *"
+                    required
+                    class="md-input"
+                  />
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <input
+                    type="text"
+                    name="subject"
+                    id="subject"
+                    placeholder="Subject"
+                    class="md-input"
+                  />
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="message">Message *</label>
+                  <textarea
+                    name="message"
+                    id="message"
+                    rows="7"
+                    placeholder="Message *"
+                    required
+                    class="md-textarea"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <div class="text-center mt-20">
+                  <button type="submit" class="btn btn-outline btn-md btn-square btn-animate remove-margin">
+                    <span>Send Message <i class="ion-android-arrow-forward"></i></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
-        <script src="https://smtpjs.com/v3/smtp.js"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script>
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                var form = event.target;
-                var name = document.getElementById('name').value;
-                var email = document.getElementById('email').value;
-                var subject = document.getElementById('subject').value;
-                var message = document.getElementById('message').value;
-    
-                var messageBody = "Name: " + name + "<br>Email: " + email + "<br>Subject: " + subject + "<br>Message: " + message;
-    
-                Email.send({
-                    Host: "smtp.elasticemail.com",
-                    Username: "olonana.nkera@gmail.com",
-                    Password: "7583405AFEC84E631C8B66E1551BCA0762F2",
-                    To: 'olonana.nkera@gmail.com',
-                    From: email,
-                    Subject: subject,
-                    Body: messageBody
-                }).then(
-                    function(response) {
-                        if (response == "OK") {
-                            swal("Thank you!", "Your message has been sent successfully!", "success");
-                            form.reset();
-                        } else {
-                            swal("Thank you!", "Your message has been sent successfully!", "success");
-                        }
-                    }
-                ).catch(
-                    function(error) {
-                        swal("Oops!", "There was a problem submitting your form", "error");
-                    }
-                );
-            });
-        </script>
-    </div>    
+      </div>    
     
     <div class="container">
       <div class="row">
